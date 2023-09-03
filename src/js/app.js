@@ -1,6 +1,11 @@
-import CardValidator from './CardValidator';
+// TODO: write code here
 
-const parent = document.querySelector('.container');
-const cardValidator = new CardValidator(parent);
+// comment this to pass build
+const unusedVariable = "variable";
 
-cardValidator.init();
+// for demonstration purpose only
+export default function demo(value) {
+  return `Demo: ${value}`;
+}
+
+console.log("app.js included");

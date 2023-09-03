@@ -1,20 +1,12 @@
 const { merge } = require('webpack-merge');
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
-const buildMode = 'production';
-const common = require('./webpack.common')(buildMode);
+const common = require('./webpack.common');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = merge(common, {
-  mode: buildMode,
+  mode: 'production',
   optimization: {
     minimizer: [
-      new TerserPlugin({}),
-      new OptimizeCSSAssetsPlugin({}),
+      new CssMinimizerPlugin(),
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-  ],
 });
